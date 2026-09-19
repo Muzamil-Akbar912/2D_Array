@@ -16,6 +16,21 @@ public class DiagonalSum {
         }
         System.out.println("The total sum of diagonals = " + sum);
     }
+
+    // Optimized approach O(n)...
+    public static void diagonalSum2(int arr[][]) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            // primary diagonal (i == j)....
+            sum += arr[i][i];
+
+            // secondary diagonal (i+j = arr.length-1 or j = arr.length-1-i)...
+            if (i != arr.length-1-i) {
+                sum += arr[i][arr.length-1-i];
+            }
+        }
+        System.out.println("The total sum of diagonals = " + sum);
+    }
     public static void main(String[] args) {
         int arr[][] = {
                         {12, 5, 7, 8},
@@ -24,6 +39,7 @@ public class DiagonalSum {
                         {33, 17, 19, 21}
                     };
 
-        diagonalSum1(arr);
+        // diagonalSum1(arr);
+        diagonalSum2(arr);
     }
 }
